@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vega San Marcos al Día</title>
+  <title>Respira Vega San Marcos</title>
 
   <style>
     body{
       margin:0;
       font-family: Arial, sans-serif;
-      background:#f4f6f9;
+      background:#f4f9f6;
       color:#222;
     }
 
     header{
       background: linear-gradient(90deg, #0b7d4f, #0a5db1);
       color:white;
-      padding:25px;
+      padding:35px;
       text-align:center;
     }
 
     header h1{
       margin:0;
-      font-size:2.2rem;
+      font-size:2.5rem;
     }
 
     header p{
-      margin:5px 0 0;
-      font-size:1.1rem;
-      opacity:0.9;
+      margin:10px 0 0;
+      font-size:1.2rem;
+      opacity:0.95;
     }
 
     nav{
@@ -46,6 +46,7 @@
       color:#0a5db1;
       margin: 0 15px;
       font-weight:bold;
+      font-size:1rem;
     }
 
     nav a:hover{
@@ -55,18 +56,18 @@
     .container{
       width:90%;
       max-width:1100px;
-      margin: 20px auto;
+      margin: 25px auto;
     }
 
     section{
-      margin-bottom:40px;
+      margin-bottom:45px;
     }
 
     section h2{
       border-left: 6px solid #0b7d4f;
-      padding-left: 10px;
+      padding-left: 12px;
       color:#0a5db1;
-      font-size:1.6rem;
+      font-size:1.7rem;
     }
 
     .cards{
@@ -78,9 +79,9 @@
 
     .card{
       background:white;
-      border-radius:12px;
-      padding:18px;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+      border-radius:14px;
+      padding:20px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
       transition: transform 0.2s;
     }
 
@@ -93,15 +94,52 @@
       color:#0b7d4f;
     }
 
-    .date{
-      font-size:0.9rem;
-      color:gray;
-      margin-bottom:10px;
+    .alert{
+      border-left: 10px solid red;
+      background:#ffeaea;
     }
 
-    .alert{
-      border-left: 8px solid red;
-      background: #ffe5e5;
+    .good{
+      border-left: 10px solid #0b7d4f;
+      background:#eafff1;
+    }
+
+    .btn{
+      display:inline-block;
+      background:#0b7d4f;
+      color:white;
+      padding:12px 18px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:bold;
+      margin-top:10px;
+    }
+
+    .btn:hover{
+      background:#095f3c;
+    }
+
+    .hero{
+      background:white;
+      padding:25px;
+      border-radius:14px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+      margin-bottom:30px;
+      text-align:center;
+    }
+
+    .hero h2{
+      border:none;
+      padding:0;
+      margin:0;
+      font-size:2rem;
+      color:#0b7d4f;
+    }
+
+    .hero p{
+      font-size:1.1rem;
+      margin-top:10px;
+      color:#444;
     }
 
     footer{
@@ -110,21 +148,6 @@
       text-align:center;
       padding:20px;
       margin-top:40px;
-    }
-
-    .btn{
-      display:inline-block;
-      background:#0b7d4f;
-      color:white;
-      padding:10px 18px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:bold;
-      margin-top:10px;
-    }
-
-    .btn:hover{
-      background:#095f3c;
     }
 
     .gallery{
@@ -136,10 +159,25 @@
 
     .gallery img{
       width:100%;
-      border-radius:12px;
+      border-radius:14px;
       height:160px;
       object-fit:cover;
       box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .info{
+      font-size:1.05rem;
+      line-height:1.6;
+      background:white;
+      padding:20px;
+      border-radius:14px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+      margin-top:15px;
+    }
+
+    .highlight{
+      color:#0b7d4f;
+      font-weight:bold;
     }
   </style>
 </head>
@@ -147,97 +185,155 @@
 <body>
 
   <header>
-    <h1>Vega San Marcos al Día</h1>
-    <p>San Rafael, Veracruz - Noticias, avisos y eventos de nuestra comunidad</p>
+    <h1>🌿 Respira Vega San Marcos</h1>
+    <p>Campaña Comunitaria - No a la Quema de Basura | San Rafael, Veracruz</p>
   </header>
 
   <nav>
-    <a href="#noticias">Noticias</a>
-    <a href="#avisos">Avisos Urgentes</a>
-    <a href="#eventos">Eventos</a>
+    <a href="#inicio">Inicio</a>
+    <a href="#porque">¿Por qué no quemar?</a>
+    <a href="#salud">Daños a la salud</a>
+    <a href="#alternativas">Alternativas</a>
+    <a href="#campanas">Campañas</a>
     <a href="#galeria">Galería</a>
-    <a href="#negocios">Negocios Locales</a>
     <a href="#contacto">Contacto</a>
   </nav>
 
   <div class="container">
 
-    <!-- NOTICIAS -->
-    <section id="noticias">
-      <h2>📰 Noticias Recientes</h2>
-      <div class="cards">
-
-        <div class="card">
-          <h3>Reunión Comunitaria</h3>
-          <p class="date">📅 14 de febrero 2026</p>
-          <p>Se invita a todos los vecinos de Vega San Marcos a la reunión comunitaria para tratar temas importantes del poblado.</p>
-        </div>
-
-        <div class="card">
-          <h3>Mejoras en la Cancha</h3>
-          <p class="date">📅 10 de febrero 2026</p>
-          <p>Se realizarán trabajos de mantenimiento en la cancha principal para mejorar el espacio deportivo.</p>
-        </div>
-
-        <div class="card">
-          <h3>Actividad Escolar</h3>
-          <p class="date">📅 8 de febrero 2026</p>
-          <p>La escuela realizará un evento cultural con participación de alumnos y padres de familia. ¡Todos invitados!</p>
-        </div>
-
+    <!-- HERO -->
+    <section id="inicio">
+      <div class="hero">
+        <h2>Respirar humo NO es normal 🚫🔥</h2>
+        <p>
+          En Vega San Marcos queremos una comunidad limpia, saludable y segura.
+          La quema de basura afecta a <span class="highlight">niños, adultos mayores</span> y al medio ambiente.
+        </p>
+        <a href="#contacto" class="btn">📢 Únete a la campaña</a>
       </div>
     </section>
 
-    <!-- AVISOS URGENTES -->
-    <section id="avisos">
-      <h2>🚨 Avisos Urgentes</h2>
+    <!-- PORQUE NO QUEMAR -->
+    <section id="porque">
+      <h2>🚫 ¿Por qué NO quemar basura?</h2>
+      <div class="info">
+        <p>
+          La quema de basura genera humo tóxico que contamina el aire que respiramos.
+          Además, puede provocar incendios y afectar la salud de toda la comunidad.
+        </p>
+      </div>
+
       <div class="cards">
-
         <div class="card alert">
-          <h3>Corte de Agua Programado</h3>
-          <p class="date">📅 15 de febrero 2026</p>
-          <p>Se informa que habrá corte de agua desde las 9:00 AM hasta las 3:00 PM por mantenimiento.</p>
+          <h3>🔥 Riesgo de Incendios</h3>
+          <p>El fuego puede salirse de control y provocar incendios en pastizales, casas y terrenos.</p>
         </div>
 
         <div class="card alert">
-          <h3>Precaución en el Camino</h3>
-          <p class="date">📅 13 de febrero 2026</p>
-          <p>Se recomienda precaución en el camino principal debido a trabajos de reparación.</p>
+          <h3>🌫️ Contaminación del Aire</h3>
+          <p>El humo contiene sustancias peligrosas que contaminan el aire y afectan el ambiente.</p>
         </div>
 
+        <div class="card alert">
+          <h3>🐾 Daño a Animales y Plantas</h3>
+          <p>El humo y el fuego afectan cultivos, árboles, animales domésticos y fauna local.</p>
+        </div>
       </div>
     </section>
 
-    <!-- EVENTOS -->
-    <section id="eventos">
-      <h2>📅 Próximos Eventos</h2>
+    <!-- SALUD -->
+    <section id="salud">
+      <h2>🩺 Daños a la salud por el humo</h2>
       <div class="cards">
-
         <div class="card">
-          <h3>Torneo de Fútbol</h3>
-          <p class="date">📅 Domingo 18 de febrero 2026</p>
-          <p>Se realizará un torneo amistoso en la cancha principal. Equipos invitados de comunidades cercanas.</p>
+          <h3>😷 Problemas Respiratorios</h3>
+          <p>El humo puede causar tos, asma, bronquitis y dificultad para respirar.</p>
         </div>
 
         <div class="card">
-          <h3>Kermés Escolar</h3>
-          <p class="date">📅 Sábado 24 de febrero 2026</p>
-          <p>Habrá venta de comida, juegos y actividades para apoyar a la escuela del poblado.</p>
+          <h3>👁️ Irritación en ojos y garganta</h3>
+          <p>El humo causa ardor en ojos, dolor de garganta, alergias y dolor de cabeza.</p>
         </div>
 
         <div class="card">
-          <h3>Jornada de Salud</h3>
-          <p class="date">📅 1 de marzo 2026</p>
-          <p>Se realizará campaña de vacunación y revisión médica básica para toda la comunidad.</p>
+          <h3>👶 Afecta más a niños y adultos mayores</h3>
+          <p>Los niños, bebés y personas mayores son los más vulnerables al humo tóxico.</p>
+        </div>
+      </div>
+
+      <div class="info">
+        <p>
+          Si alguien en casa presenta síntomas frecuentes como tos, irritación o dificultad para respirar,
+          es importante reducir la exposición al humo y acudir al centro de salud.
+        </p>
+      </div>
+    </section>
+
+    <!-- ALTERNATIVAS -->
+    <section id="alternativas">
+      <h2>♻️ ¿Qué hacer en lugar de quemarla?</h2>
+
+      <div class="cards">
+        <div class="card good">
+          <h3>🗑️ Separar la basura</h3>
+          <p>Separar plástico, vidrio, cartón y orgánicos ayuda a reducir la contaminación.</p>
         </div>
 
+        <div class="card good">
+          <h3>🌱 Hacer composta</h3>
+          <p>Los restos de comida y hojas pueden convertirse en abono natural para plantas.</p>
+        </div>
+
+        <div class="card good">
+          <h3>📦 Reutilizar y reciclar</h3>
+          <p>Botellas, cajas y envases pueden reutilizarse o llevarse a centros de acopio.</p>
+        </div>
+
+        <div class="card good">
+          <h3>🚛 Esperar recolección</h3>
+          <p>Guardar la basura bien cerrada y esperar el día de recolección evita quemas innecesarias.</p>
+        </div>
+
+        <div class="card good">
+          <h3>🧹 Jornadas de limpieza</h3>
+          <p>Organizar limpieza comunitaria ayuda a mantener el pueblo limpio y libre de contaminación.</p>
+        </div>
+
+        <div class="card good">
+          <h3>📢 Informar y concientizar</h3>
+          <p>Compartir esta información ayuda a que más personas cuiden el aire de todos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAMPAÑAS -->
+    <section id="campanas">
+      <h2>📢 Campañas y Avisos Comunitarios</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>🌍 Campaña: “Vega San Marcos Sin Humo”</h3>
+          <p><b>Objetivo:</b> Reducir la quema de basura y cuidar el aire del poblado.</p>
+        </div>
+
+        <div class="card">
+          <h3>🧹 Jornada de Limpieza Comunitaria</h3>
+          <p>Invitamos a todos los vecinos a participar en una limpieza general del pueblo.</p>
+        </div>
+
+        <div class="card">
+          <h3>♻️ Recolección de PET y Cartón</h3>
+          <p>Trae tus botellas y cartón para apoyar el reciclaje y mantener limpio el entorno.</p>
+        </div>
       </div>
     </section>
 
     <!-- GALERIA -->
     <section id="galeria">
-      <h2>📸 Galería de Vega San Marcos</h2>
-      <p>Aquí puedes agregar fotos del pueblo, eventos, fiestas y momentos importantes.</p>
+      <h2>📸 Galería de la Comunidad</h2>
+      <div class="info">
+        <p>Aquí puedes subir fotos de campañas, jornadas de limpieza y actividades del pueblo.</p>
+      </div>
 
       <div class="gallery">
         <img src="https://via.placeholder.com/400x250" alt="Foto 1">
@@ -247,46 +343,27 @@
       </div>
     </section>
 
-    <!-- NEGOCIOS -->
-    <section id="negocios">
-      <h2>🛍️ Negocios Locales</h2>
-      <div class="cards">
-
-        <div class="card">
-          <h3>Comida Doña Lupita</h3>
-          <p class="date">📍 Centro del poblado</p>
-          <p>Venta de tamales, antojitos y comida casera los fines de semana.</p>
-        </div>
-
-        <div class="card">
-          <h3>Tienda "El Ahorro"</h3>
-          <p class="date">📍 Calle Principal</p>
-          <p>Productos básicos, refrescos, abarrotes y recargas.</p>
-        </div>
-
-        <div class="card">
-          <h3>Panadería Artesanal</h3>
-          <p class="date">📍 Cerca de la cancha</p>
-          <p>Pan recién hecho por las mañanas. Conchas, bolillos y pan dulce.</p>
-        </div>
-
-      </div>
-    </section>
-
     <!-- CONTACTO -->
     <section id="contacto">
-      <h2>📞 Contacto / Reportar Avisos</h2>
-      <p>Si deseas publicar una noticia, evento o aviso importante, puedes comunicarte con los administradores.</p>
+      <h2>📞 Contacto / Reportar Quema de Basura</h2>
+
+      <div class="info">
+        <p>
+          Si deseas apoyar esta campaña o reportar quema de basura, puedes comunicarte con el administrador.
+          Entre todos podemos lograr una comunidad más limpia y segura.
+        </p>
+      </div>
 
       <div class="cards">
         <div class="card">
-          <h3>📱 WhatsApp</h3>
-          <p>Agrega aquí tu número o link de grupo.</p>
+          <h3>📱 WhatsApp Comunitario</h3>
+          <p>Agrega aquí tu número o link del grupo de WhatsApp.</p>
+          <a href="#" class="btn">Ir a WhatsApp</a>
         </div>
 
         <div class="card">
           <h3>📧 Correo</h3>
-          <p>comunidadvegasanmarcos@gmail.com</p>
+          <p>respiravegasanmarcos@gmail.com</p>
         </div>
 
         <div class="card">
@@ -294,17 +371,14 @@
           <p>Vega San Marcos, San Rafael, Veracruz, México.</p>
         </div>
       </div>
-
     </section>
 
   </div>
 
   <footer>
-    <p>© 2026 - Vega San Marcos al Día | Página Comunitaria</p>
-    <p>Hecho para informar y unir a la comunidad 💚</p>
+    <p>© 2026 - Respira Vega San Marcos | Campaña Comunitaria</p>
+    <p>🌿 No quemes basura. Cuidemos el aire de todos 💚</p>
   </footer>
 
 </body>
 </html>
-
-
