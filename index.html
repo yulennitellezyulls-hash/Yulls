@@ -28,7 +28,6 @@ nav{
   text-align:center;
   position:sticky;
   top:0;
-  z-index:1000;
 }
 
 nav a{
@@ -142,6 +141,7 @@ input, textarea{
   padding:15px;
   border-radius:50%;
   text-decoration:none;
+  box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* FOOTER */
@@ -172,7 +172,6 @@ footer{
 
 <div class="container">
 
-<!-- HERO -->
 <section id="inicio">
   <div class="hero">
     <h2>El humo que respiras hoy puede enfermar a tu familia mañana</h2>
@@ -181,7 +180,6 @@ footer{
   </div>
 </section>
 
-<!-- DATOS -->
 <section>
   <h2>📊 Impacto</h2>
   <div class="cards">
@@ -191,7 +189,6 @@ footer{
   </div>
 </section>
 
-<!-- DAÑOS -->
 <section id="danos">
   <h2>🚫 Daños</h2>
   <div class="cards">
@@ -201,7 +198,6 @@ footer{
   </div>
 </section>
 
-<!-- ALTERNATIVAS -->
 <section id="alternativas">
   <h2>♻️ Alternativas</h2>
   <div class="cards">
@@ -212,7 +208,6 @@ footer{
   </div>
 </section>
 
-<!-- GALERIA -->
 <section id="galeria">
   <h2>📸 Galería</h2>
   <div class="gallery">
@@ -223,33 +218,36 @@ footer{
   </div>
 </section>
 
-<!-- CONTACTO -->
 <section id="contacto">
   <h2>📞 Contacto</h2>
 
   <div class="cards">
+
     <div class="card">
-      <h3>📝 Reportar</h3>
-      <form>
-        <input type="text" placeholder="Nombre" required><br><br>
-        <input type="text" placeholder="Ubicación" required><br><br>
-        <textarea placeholder="Describe el problema"></textarea><br><br>
-        <button class="btn">Enviar</button>
-      </form>
+      <h3>📱 WhatsApp</h3>
+      <p>5583679002</p>
+
+      <a href="https://api.whatsapp.com/send?phone=525583679002&text=Hola%20quiero%20reportar%20quema%20de%20basura" 
+      class="btn" target="_blank">
+        Enviar mensaje
+      </a>
     </div>
 
     <div class="card">
       <h3>📧 Correo</h3>
       <p>respiravegasanmarcos@gmail.com</p>
     </div>
-  </div>
 
+  </div>
 </section>
 
 </div>
 
-<a href="https://wa.me/525583679002?text=Hola,%20quiero%20reportar%20quema%20de%20basura" 
-class="whatsapp" target="_blank">💬</a>
+<!-- BOTÓN FLOTANTE -->
+<a href="https://api.whatsapp.com/send?phone=525583679002&text=Hola%20quiero%20reportar%20quema%20de%20basura" 
+class="whatsapp" target="_blank">
+💬
+</a>
 
 <footer>
   <p>© 2026 Respira Vega San Marcos</p>
