@@ -1,384 +1,259 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Respira Vega San Marcos</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Respira Vega San Marcos</title>
 
-  <style>
-    body{
-      margin:0;
-      font-family: Arial, sans-serif;
-      background:#f4f9f6;
-      color:#222;
-    }
+<style>
 
-    header{
-      background: linear-gradient(90deg, #0b7d4f, #0a5db1);
-      color:white;
-      padding:35px;
-      text-align:center;
-    }
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(#f4f9f6, #e0f7ef);
+}
 
-    header h1{
-      margin:0;
-      font-size:2.5rem;
-    }
+/* HEADER */
+header{
+  background: linear-gradient(90deg, #0b7d4f, #0a5db1);
+  color:white;
+  padding:35px;
+  text-align:center;
+}
 
-    header p{
-      margin:10px 0 0;
-      font-size:1.2rem;
-      opacity:0.95;
-    }
+/* NAV */
+nav{
+  background:white;
+  padding:12px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
 
-    nav{
-      background:#ffffff;
-      padding:12px;
-      text-align:center;
-      box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+nav a{
+  text-decoration:none;
+  margin:0 15px;
+  color:#0a5db1;
+  font-weight:bold;
+}
 
-    nav a{
-      text-decoration:none;
-      color:#0a5db1;
-      margin: 0 15px;
-      font-weight:bold;
-      font-size:1rem;
-    }
+/* CONTENEDOR */
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:25px auto;
+}
 
-    nav a:hover{
-      color:#0b7d4f;
-    }
+/* HERO */
+.hero{
+  background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') center/cover;
+  color:white;
+  padding:40px;
+  border-radius:14px;
+  position:relative;
+  text-align:center;
+}
 
-    .container{
-      width:90%;
-      max-width:1100px;
-      margin: 25px auto;
-    }
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  border-radius:14px;
+}
 
-    section{
-      margin-bottom:45px;
-    }
+.hero *{
+  position:relative;
+  z-index:2;
+}
 
-    section h2{
-      border-left: 6px solid #0b7d4f;
-      padding-left: 12px;
-      color:#0a5db1;
-      font-size:1.7rem;
-    }
+/* SECCIONES */
+section{
+  margin-bottom:40px;
+}
 
-    .cards{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap:20px;
-      margin-top:15px;
-    }
+h2{
+  border-left:6px solid #0b7d4f;
+  padding-left:10px;
+}
 
-    .card{
-      background:white;
-      border-radius:14px;
-      padding:20px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.2s;
-    }
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+  gap:20px;
+}
 
-    .card:hover{
-      transform: scale(1.02);
-    }
+.card{
+  background:white;
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  transition:all 0.3s;
+}
 
-    .card h3{
-      margin-top:0;
-      color:#0b7d4f;
-    }
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
 
-    .alert{
-      border-left: 10px solid red;
-      background:#ffeaea;
-    }
+/* BOTON */
+.btn{
+  display:inline-block;
+  background:#0b7d4f;
+  color:white;
+  padding:10px 15px;
+  border-radius:10px;
+  text-decoration:none;
+  margin-top:10px;
+}
 
-    .good{
-      border-left: 10px solid #0b7d4f;
-      background:#eafff1;
-    }
+/* GALERIA */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
 
-    .btn{
-      display:inline-block;
-      background:#0b7d4f;
-      color:white;
-      padding:12px 18px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:bold;
-      margin-top:10px;
-    }
+.gallery img{
+  width:100%;
+  border-radius:10px;
+  height:150px;
+  object-fit:cover;
+}
 
-    .btn:hover{
-      background:#095f3c;
-    }
+/* FORM */
+input, textarea{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
 
-    .hero{
-      background:white;
-      padding:25px;
-      border-radius:14px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
-      margin-bottom:30px;
-      text-align:center;
-    }
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  font-size:25px;
+  padding:15px;
+  border-radius:50%;
+  text-decoration:none;
+}
 
-    .hero h2{
-      border:none;
-      padding:0;
-      margin:0;
-      font-size:2rem;
-      color:#0b7d4f;
-    }
+/* FOOTER */
+footer{
+  background:#0a5db1;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
 
-    .hero p{
-      font-size:1.1rem;
-      margin-top:10px;
-      color:#444;
-    }
-
-    footer{
-      background:#0a5db1;
-      color:white;
-      text-align:center;
-      padding:20px;
-      margin-top:40px;
-    }
-
-    .gallery{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap:15px;
-      margin-top:15px;
-    }
-
-    .gallery img{
-      width:100%;
-      border-radius:14px;
-      height:160px;
-      object-fit:cover;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
-    }
-
-    .info{
-      font-size:1.05rem;
-      line-height:1.6;
-      background:white;
-      padding:20px;
-      border-radius:14px;
-      box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
-      margin-top:15px;
-    }
-
-    .highlight{
-      color:#0b7d4f;
-      font-weight:bold;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>🌿 Respira Vega San Marcos</h1>
-    <p>Campaña Comunitaria - No a la Quema de Basura | San Rafael, Veracruz</p>
-  </header>
+<header>
+  <h1>🌿 Respira Vega San Marcos</h1>
+  <p>Campaña contra la quema de basura</p>
+</header>
 
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#porque">¿Por qué no quemar?</a>
-    <a href="#salud">Daños a la salud</a>
-    <a href="#alternativas">Alternativas</a>
-    <a href="#campanas">Campañas</a>
-    <a href="#galeria">Galería</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+<nav>
+  <a href="#inicio">Inicio</a>
+  <a href="#danos">Daños</a>
+  <a href="#alternativas">Alternativas</a>
+  <a href="#galeria">Galería</a>
+  <a href="#contacto">Contacto</a>
+</nav>
 
-  <div class="container">
+<div class="container">
 
-    <!-- HERO -->
-    <section id="inicio">
-      <div class="hero">
-        <h2>Respirar humo NO es normal 🚫🔥</h2>
-        <p>
-          En Vega San Marcos queremos una comunidad limpia, saludable y segura.
-          La quema de basura afecta a <span class="highlight">niños, adultos mayores</span> y al medio ambiente.
-        </p>
-        <a href="#contacto" class="btn">📢 Únete a la campaña</a>
-      </div>
-    </section>
+<!-- HERO -->
+<section id="inicio">
+  <div class="hero">
+    <h2>El humo que respiras hoy puede enfermar a tu familia mañana</h2>
+    <p>Ayúdanos a mantener un aire limpio para todos</p>
+    <a href="#contacto" class="btn">Únete</a>
+  </div>
+</section>
 
-    <!-- PORQUE NO QUEMAR -->
-    <section id="porque">
-      <h2>🚫 ¿Por qué NO quemar basura?</h2>
-      <div class="info">
-        <p>
-          La quema de basura genera humo tóxico que contamina el aire que respiramos.
-          Además, puede provocar incendios y afectar la salud de toda la comunidad.
-        </p>
-      </div>
+<!-- DATOS -->
+<section>
+  <h2>📊 Impacto</h2>
+  <div class="cards">
+    <div class="card"><h3>🔥 70%</h3><p>Incendios por quemas</p></div>
+    <div class="card"><h3>🌫️ Aire tóxico</h3><p>Contamina el ambiente</p></div>
+    <div class="card"><h3>👶 Riesgo</h3><p>Afecta a niños y adultos</p></div>
+  </div>
+</section>
 
-      <div class="cards">
-        <div class="card alert">
-          <h3>🔥 Riesgo de Incendios</h3>
-          <p>El fuego puede salirse de control y provocar incendios en pastizales, casas y terrenos.</p>
-        </div>
+<!-- DAÑOS -->
+<section id="danos">
+  <h2>🚫 Daños</h2>
+  <div class="cards">
+    <div class="card"><h3>😷 Respiración</h3><p>Problemas pulmonares</p></div>
+    <div class="card"><h3>🔥 Incendios</h3><p>Fuego fuera de control</p></div>
+    <div class="card"><h3>🐾 Animales</h3><p>Afecta fauna</p></div>
+  </div>
+</section>
 
-        <div class="card alert">
-          <h3>🌫️ Contaminación del Aire</h3>
-          <p>El humo contiene sustancias peligrosas que contaminan el aire y afectan el ambiente.</p>
-        </div>
+<!-- ALTERNATIVAS -->
+<section id="alternativas">
+  <h2>♻️ Alternativas</h2>
+  <div class="cards">
+    <div class="card"><h3>Separar basura</h3></div>
+    <div class="card"><h3>Reciclar</h3></div>
+    <div class="card"><h3>Composta</h3></div>
+    <div class="card"><h3>Recolección</h3></div>
+  </div>
+</section>
 
-        <div class="card alert">
-          <h3>🐾 Daño a Animales y Plantas</h3>
-          <p>El humo y el fuego afectan cultivos, árboles, animales domésticos y fauna local.</p>
-        </div>
-      </div>
-    </section>
+<!-- GALERIA -->
+<section id="galeria">
+  <h2>📸 Galería</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d">
+    <img src="https://images.unsplash.com/photo-1569163139394-de4e4f43e4e5">
+    <img src="https://images.unsplash.com/photo-1581579185169-64d8e29f6b4c">
+    <img src="https://images.unsplash.com/photo-1605600659873-d808a13e4a77">
+  </div>
+</section>
 
-    <!-- SALUD -->
-    <section id="salud">
-      <h2>🩺 Daños a la salud por el humo</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>😷 Problemas Respiratorios</h3>
-          <p>El humo puede causar tos, asma, bronquitis y dificultad para respirar.</p>
-        </div>
+<!-- CONTACTO -->
+<section id="contacto">
+  <h2>📞 Contacto</h2>
 
-        <div class="card">
-          <h3>👁️ Irritación en ojos y garganta</h3>
-          <p>El humo causa ardor en ojos, dolor de garganta, alergias y dolor de cabeza.</p>
-        </div>
+  <div class="cards">
+    <div class="card">
+      <h3>📝 Reportar</h3>
+      <form>
+        <input type="text" placeholder="Nombre" required><br><br>
+        <input type="text" placeholder="Ubicación" required><br><br>
+        <textarea placeholder="Describe el problema"></textarea><br><br>
+        <button class="btn">Enviar</button>
+      </form>
+    </div>
 
-        <div class="card">
-          <h3>👶 Afecta más a niños y adultos mayores</h3>
-          <p>Los niños, bebés y personas mayores son los más vulnerables al humo tóxico.</p>
-        </div>
-      </div>
-
-      <div class="info">
-        <p>
-          Si alguien en casa presenta síntomas frecuentes como tos, irritación o dificultad para respirar,
-          es importante reducir la exposición al humo y acudir al centro de salud.
-        </p>
-      </div>
-    </section>
-
-    <!-- ALTERNATIVAS -->
-    <section id="alternativas">
-      <h2>♻️ ¿Qué hacer en lugar de quemarla?</h2>
-
-      <div class="cards">
-        <div class="card good">
-          <h3>🗑️ Separar la basura</h3>
-          <p>Separar plástico, vidrio, cartón y orgánicos ayuda a reducir la contaminación.</p>
-        </div>
-
-        <div class="card good">
-          <h3>🌱 Hacer composta</h3>
-          <p>Los restos de comida y hojas pueden convertirse en abono natural para plantas.</p>
-        </div>
-
-        <div class="card good">
-          <h3>📦 Reutilizar y reciclar</h3>
-          <p>Botellas, cajas y envases pueden reutilizarse o llevarse a centros de acopio.</p>
-        </div>
-
-        <div class="card good">
-          <h3>🚛 Esperar recolección</h3>
-          <p>Guardar la basura bien cerrada y esperar el día de recolección evita quemas innecesarias.</p>
-        </div>
-
-        <div class="card good">
-          <h3>🧹 Jornadas de limpieza</h3>
-          <p>Organizar limpieza comunitaria ayuda a mantener el pueblo limpio y libre de contaminación.</p>
-        </div>
-
-        <div class="card good">
-          <h3>📢 Informar y concientizar</h3>
-          <p>Compartir esta información ayuda a que más personas cuiden el aire de todos.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CAMPAÑAS -->
-    <section id="campanas">
-      <h2>📢 Campañas y Avisos Comunitarios</h2>
-
-      <div class="cards">
-        <div class="card">
-          <h3>🌍 Campaña: “Vega San Marcos Sin Humo”</h3>
-          <p><b>Objetivo:</b> Reducir la quema de basura y cuidar el aire del poblado.</p>
-        </div>
-
-        <div class="card">
-          <h3>🧹 Jornada de Limpieza Comunitaria</h3>
-          <p>Invitamos a todos los vecinos a participar en una limpieza general del pueblo.</p>
-        </div>
-
-        <div class="card">
-          <h3>♻️ Recolección de PET y Cartón</h3>
-          <p>Trae tus botellas y cartón para apoyar el reciclaje y mantener limpio el entorno.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALERIA -->
-    <section id="galeria">
-      <h2>📸 Galería de la Comunidad</h2>
-      <div class="info">
-        <p>Aquí puedes subir fotos de campañas, jornadas de limpieza y actividades del pueblo.</p>
-      </div>
-
-      <div class="gallery">
-        <img src="https://via.placeholder.com/400x250" alt="Foto 1">
-        <img src="https://via.placeholder.com/400x250" alt="Foto 2">
-        <img src="https://via.placeholder.com/400x250" alt="Foto 3">
-        <img src="https://via.placeholder.com/400x250" alt="Foto 4">
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto">
-      <h2>📞 Contacto / Reportar Quema de Basura</h2>
-
-      <div class="info">
-        <p>
-          Si deseas apoyar esta campaña o reportar quema de basura, puedes comunicarte con el administrador.
-          Entre todos podemos lograr una comunidad más limpia y segura.
-        </p>
-      </div>
-
-      <div class="cards">
-        <div class="card">
-          <h3>📱 WhatsApp Comunitario</h3>
-          <p>Agrega aquí tu número o link del grupo de WhatsApp.</p>
-          <a href="#" class="btn">Ir a WhatsApp</a>
-        </div>
-
-        <div class="card">
-          <h3>📧 Correo</h3>
-          <p>respiravegasanmarcos@gmail.com</p>
-        </div>
-
-        <div class="card">
-          <h3>📍 Ubicación</h3>
-          <p>Vega San Marcos, San Rafael, Veracruz, México.</p>
-        </div>
-      </div>
-    </section>
-
+    <div class="card">
+      <h3>📧 Correo</h3>
+      <p>respiravegasanmarcos@gmail.com</p>
+    </div>
   </div>
 
-  <footer>
-    <p>© 2026 - Respira Vega San Marcos | Campaña Comunitaria</p>
-    <p>🌿 No quemes basura. Cuidemos el aire de todos 💚</p>
-  </footer>
+</section>
+
+</div>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/5210000000000" class="whatsapp">💬</a>
+
+<footer>
+  <p>© 2026 Respira Vega San Marcos</p>
+</footer>
 
 </body>
 </html>
