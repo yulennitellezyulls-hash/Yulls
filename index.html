@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Respira Vega San Marcos</title>
+<title>Cuidemos el Agua - Vega de San Marcos</title>
 
 <style>
 
 body{
   margin:0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(#f4f9f6, #e0f7ef);
+  background: linear-gradient(#e6f7ff, #d0f0f5);
 }
 
 /* HEADER */
 header{
-  background: linear-gradient(90deg, #0b7d4f, #0a5db1);
+  background: linear-gradient(90deg, #0077b6, #00b4d8);
   color:white;
   padding:35px;
   text-align:center;
@@ -31,9 +31,9 @@ nav{
 }
 
 nav a{
-  text-decoration:none;
   margin:0 15px;
-  color:#0a5db1;
+  text-decoration:none;
+  color:#0077b6;
   font-weight:bold;
 }
 
@@ -46,9 +46,9 @@ nav a{
 
 /* HERO */
 .hero{
-  background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') center/cover;
+  background:url('https://images.unsplash.com/photo-1502082553048-f009c37129b9') center/cover;
   color:white;
-  padding:40px;
+  padding:50px;
   border-radius:14px;
   position:relative;
   text-align:center;
@@ -64,7 +64,6 @@ nav a{
 
 .hero *{
   position:relative;
-  z-index:2;
 }
 
 /* SECCIONES */
@@ -73,7 +72,7 @@ section{
 }
 
 h2{
-  border-left:6px solid #0b7d4f;
+  border-left:6px solid #00b4d8;
   padding-left:10px;
 }
 
@@ -88,24 +87,22 @@ h2{
   background:white;
   padding:20px;
   border-radius:14px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1);
-  transition:all 0.3s;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+  transform:scale(1.03);
 }
 
 /* BOTON */
 .btn{
-  display:inline-block;
-  background:#0b7d4f;
+  background:#0077b6;
   color:white;
   padding:10px 15px;
   border-radius:10px;
   text-decoration:none;
-  margin-top:10px;
+  display:inline-block;
 }
 
 /* GALERIA */
@@ -117,17 +114,9 @@ h2{
 
 .gallery img{
   width:100%;
-  border-radius:10px;
   height:150px;
   object-fit:cover;
-}
-
-/* FORM */
-input, textarea{
-  width:100%;
-  padding:10px;
-  border-radius:8px;
-  border:1px solid #ccc;
+  border-radius:10px;
 }
 
 /* WHATSAPP */
@@ -137,16 +126,14 @@ input, textarea{
   right:20px;
   background:#25D366;
   color:white;
-  font-size:25px;
   padding:15px;
   border-radius:50%;
   text-decoration:none;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* FOOTER */
 footer{
-  background:#0a5db1;
+  background:#0077b6;
   color:white;
   text-align:center;
   padding:20px;
@@ -158,14 +145,14 @@ footer{
 <body>
 
 <header>
-  <h1>🌿 Respira Vega San Marcos</h1>
-  <p>Campaña contra la quema de basura</p>
+  <h1>💧 Cuidemos el Agua</h1>
+  <p>Vega de San Marcos, Veracruz</p>
 </header>
 
 <nav>
   <a href="#inicio">Inicio</a>
-  <a href="#danos">Daños</a>
-  <a href="#alternativas">Alternativas</a>
+  <a href="#problema">Problema</a>
+  <a href="#tips">Consejos</a>
   <a href="#galeria">Galería</a>
   <a href="#contacto">Contacto</a>
 </nav>
@@ -174,47 +161,36 @@ footer{
 
 <section id="inicio">
   <div class="hero">
-    <h2>El humo que respiras hoy puede enfermar a tu familia mañana</h2>
-    <p>Ayúdanos a mantener un aire limpio para todos</p>
-    <a href="#contacto" class="btn">Únete</a>
+    <h2>El agua que desperdicias hoy, puede faltarte mañana</h2>
+    <p>Cuidemos juntos este recurso vital 💙</p>
   </div>
 </section>
 
-<section>
-  <h2>📊 Impacto</h2>
+<section id="problema">
+  <h2>🚱 Problema del agua</h2>
   <div class="cards">
-    <div class="card"><h3>🔥 70%</h3><p>Incendios por quemas</p></div>
-    <div class="card"><h3>🌫️ Aire tóxico</h3><p>Contamina el ambiente</p></div>
-    <div class="card"><h3>👶 Riesgo</h3><p>Afecta a niños y adultos</p></div>
+    <div class="card"><h3>💧 Escasez</h3><p>El agua cada vez es más limitada.</p></div>
+    <div class="card"><h3>🚿 Desperdicio</h3><p>Se pierde mucha agua en casa.</p></div>
+    <div class="card"><h3>🌍 Contaminación</h3><p>El agua se ensucia con basura.</p></div>
   </div>
 </section>
 
-<section id="danos">
-  <h2>🚫 Daños</h2>
+<section id="tips">
+  <h2>✅ Cómo ahorrar agua</h2>
   <div class="cards">
-    <div class="card"><h3>😷 Respiración</h3><p>Problemas pulmonares</p></div>
-    <div class="card"><h3>🔥 Incendios</h3><p>Fuego fuera de control</p></div>
-    <div class="card"><h3>🐾 Animales</h3><p>Afecta fauna</p></div>
-  </div>
-</section>
-
-<section id="alternativas">
-  <h2>♻️ Alternativas</h2>
-  <div class="cards">
-    <div class="card"><h3>Separar basura</h3></div>
-    <div class="card"><h3>Reciclar</h3></div>
-    <div class="card"><h3>Composta</h3></div>
-    <div class="card"><h3>Recolección</h3></div>
+    <div class="card"><h3>Cerrar la llave</h3></div>
+    <div class="card"><h3>Reutilizar agua</h3></div>
+    <div class="card"><h3>Reparar fugas</h3></div>
+    <div class="card"><h3>Usar cubeta</h3></div>
   </div>
 </section>
 
 <section id="galeria">
-  <h2>📸 Galería</h2>
+  <h2>📸 Comunidad</h2>
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d">
-    <img src="https://images.unsplash.com/photo-1569163139394-de4e4f43e4e5">
-    <img src="https://images.unsplash.com/photo-1581579185169-64d8e29f6b4c">
-    <img src="https://images.unsplash.com/photo-1605600659873-d808a13e4a77">
+    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9">
+    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
   </div>
 </section>
 
@@ -226,31 +202,28 @@ footer{
     <div class="card">
       <h3>📱 WhatsApp</h3>
       <p>5583679002</p>
-
-      <a href="https://api.whatsapp.com/send?phone=525583679002&text=Hola%20quiero%20reportar%20quema%20de%20basura" 
-      class="btn" target="_blank">
+      <a href="https://wa.me/525583679002" class="btn" target="_blank">
         Enviar mensaje
       </a>
     </div>
 
     <div class="card">
       <h3>📧 Correo</h3>
-      <p>respiravegasanmarcos@gmail.com</p>
+      <p>cuidemoselagua@gmail.com</p>
     </div>
 
   </div>
+
 </section>
 
 </div>
 
-<!-- BOTÓN FLOTANTE -->
-<a href="https://api.whatsapp.com/send?phone=525583679002&text=Hola%20quiero%20reportar%20quema%20de%20basura" 
-class="whatsapp" target="_blank">
-💬
+<a href="https://wa.me/525583679002" class="whatsapp" target="_blank">
+💧
 </a>
 
 <footer>
-  <p>© 2026 Respira Vega San Marcos</p>
+  <p>© 2026 Cuidemos el Agua - Vega de San Marcos</p>
 </footer>
 
 </body>
