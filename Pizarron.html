@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+
+    function colorear(event){
+        var canvas = document.getElementById("mycanvas");
+        var ctx = canvas.getContext("2d");
+        var posx = event.clientX - canvas.offsetLeft;
+        var posy = event.clientY - canvas.offsetTop;
+        document.getElementById("posx").value = posx;
+        document.getElementById("posy").value = posy;
+        var colorDeseado = document.getElementById("color").value;
+        ctx.fillStyle = colorDeseado;
+        grosor = document.getElementById("grosor").value;
+        ctx.fillRect(posx, posy, grosor, grosor);
+    }
+</script>
+</head>
+<body>
+    <canvas id="mycanvas" onmousemove="colorear(event)" width="800"  height="400"
+            style="border:1px solid #000;">
+    </canvas>
+    <br>
+    posx: <input type="text" id="posx" value="0">
+    posy: <input type="text" id="posy" value="0">
+    <input type="color" id="color">
+    <input type="range" name="" id="grosor" min="1" max="20" value="10">
+    <input type="button" value="limpiar" onclick="location.reload()">
+</body>
+</html>
