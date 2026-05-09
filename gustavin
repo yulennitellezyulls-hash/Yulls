@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pelotas Rebotando</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #1a1a2e;
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<script>
+
+  /* ── 1. Configuración del canvas ── */
+  const canvas = document.getElementById('canvas');
+  const ctx    = canvas.getContext('2d');
+
+  let width  = canvas.width  = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  window.addEventListener('resize', () => {
+    width  = canvas.width  = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  /* ── 2. Función auxiliar: número aleatorio ── */
+  function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  /* ── 3. Rutas de tus imágenes ──────────────────────────────────
+      Pon las imágenes en la MISMA carpeta que este index.html
+      y escribe aquí sus nombres exactos (con extensión).
+  ──────────────────────────────────────────────────────────── */
+  const imagenes = [
+    'imagen_redonda.jpg',    // imagen 1
+    'imagen_redonda_2.jpg',  // imagen 2
+    'imagen_redonda_3.jpg'   // imagen 3
+  ];
+
+  /* Color del borde/brillo de cada imagen */
+  const colores = ['#f72585', '#4cc9f0', '#f8961e'];
+
+  /* ── 4. Cargar imágenes ── */
+  const imgs    = [];
+  let cargadas  = 0;
+
+  imagenes.forEach((src, i) => {
+    const img   = new Image();
+    img.onload  = () => { cargadas++; if (cargadas === imagenes.length) iniciar(); };
+    img.onerror = () => { cargadas++; if (cargadas === imagenes.length) iniciar(); };
+    img.src     = src;
+    imgs.push(img);
+  });
+
+  /* ── 5. Constructor de Pelota ── */
+  function Ball(x, y, velX, velY, img, color, size) {
+    this.x     = x;
+    this.y     = y;
+    this.velX  = velX;
+    this.velY  = velY;
+    this.img   = img;
+    this.color = color;
+    this.size  = size;
+  }
+
+  /* Dibujar la pelota como círculo con imagen adentro */
+  Ball.prototype.draw = function () {
+
+    /* --- brillo / sombra --- */
+    ctx.save();
+    ctx.shadowColor = this.color;
+    ctx.shadowBlur  = 22;
+
+    /* --- recorte circular --- */
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.clip();
+
+    /* --- imagen dentro del círculo --- */
+    ctx.drawImage(
+      this.img,
+      this.x - this.size,
+      this.y - this.size,
+      this.size * 2,
+      this.size * 2
+    );
+    ctx.restore();
+
+    /* --- borde de color --- */
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.strokeStyle = this.color;
+    ctx.lineWidth   = 3;
+    ctx.stroke();
+    ctx.restore();
+  };
+
+  /* Mover la pelota y rebotar en los bordes */
+  Ball.prototype.update = function () {
+    if (this.x + this.size >= width)  this.velX = -Math.abs(this.velX);
+    if (this.x - this.size <= 0)      this.velX =  Math.abs(this.velX);
+    if (this.y + this.size >= height) this.velY = -Math.abs(this.velY);
+    if (this.y - this.size <= 0)      this.velY =  Math.abs(this.velY);
+
+    this.x += this.velX;
+    this.y += this.velY;
+  };
+
+  /* Detectar colisión con otras pelotas e intercambiar velocidades */
+  Ball.prototype.collisionDetect = function () {
+    for (let j = 0; j < balls.length; j++) {
+      if (this !== balls[j]) {
+        const dx       = this.x - balls[j].x;
+        const dy       = this.y - balls[j].y;
+        const distancia = Math.sqrt(dx * dx + dy * dy);
+
+        if (distancia < this.size + balls[j].size) {
+          /* intercambiar velocidades */
+          let tmpX       = this.velX;
+          let tmpY       = this.velY;
+          this.velX      = balls[j].velX;
+          this.velY      = balls[j].velY;
+          balls[j].velX  = tmpX;
+          balls[j].velY  = tmpY;
+        }
+      }
+    }
+  };
+
+  /* ── 6. Estrellas decorativas en el fondo ── */
+  const estrellas = [];
+  for (let s = 0; s < 80; s++) {
+    estrellas.push({
+      x: random(0, window.innerWidth),
+      y: random(0, window.innerHeight),
+      r: Math.random() * 1.5 + 0.3,
+      a: Math.random()
+    });
+  }
+
+  function dibujarEstrellas() {
+    estrellas.forEach(s => {
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, 2 * Math.PI);
+      ctx.fillStyle = `rgba(255,255,255,${s.a})`;
+      ctx.fill();
+    });
+  }
+
+  /* ── 7. Crear las pelotas ── */
+  const balls = [];
+
+  function iniciar() {
+    const copias = 3; // cuántas copias de cada imagen (puedes cambiar este número)
+
+    for (let rep = 0; rep < copias; rep++) {
+      for (let i = 0; i < imgs.length; i++) {
+        const size = random(40, 70);
+        const velX = random(2, 6) * (Math.random() > 0.5 ? 1 : -1);
+        const velY = random(2, 6) * (Math.random() > 0.5 ? 1 : -1);
+
+        balls.push(new Ball(
+          random(size, width  - size),
+          random(size, height - size),
+          velX,
+          velY,
+          imgs[i],
+          colores[i],
+          size
+        ));
+      }
+    }
+
+    loop(); // arrancar animación
+  }
+
+  /* ── 8. Bucle de animación ── */
+  function loop() {
+    /* fondo semi-transparente → crea efecto de estela */
+    ctx.fillStyle = 'rgba(26, 26, 46, 0.30)';
+    ctx.fillRect(0, 0, width, height);
+
+    dibujarEstrellas();
+
+    for (let i = 0; i < balls.length; i++) {
+      balls[i].update();
+      balls[i].collisionDetect();
+      balls[i].draw();
+    }
+
+    requestAnimationFrame(loop);
+  }
+
+</script>
+</body>
+</html>
