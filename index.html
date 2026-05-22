@@ -1,230 +1,355 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cuidemos el Agua - Vega de San Marcos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>Cuidemos el Agua - Vega de San Marcos</title>
 
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(#e6f7ff, #d0f0f5);
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* HEADER */
-header{
-  background: linear-gradient(90deg, #0077b6, #00b4d8);
-  color:white;
-  padding:35px;
-  text-align:center;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(#e6f7ff, #d0f0f5);
+            color: #333;
+        }
 
-/* NAV */
-nav{
-  background:white;
-  padding:12px;
-  text-align:center;
-  position:sticky;
-  top:0;
-}
+        /* HEADER */
+        header {
+            background: linear-gradient(90deg, #0077b6, #00b4d8);
+            color: white;
+            text-align: center;
+            padding: 35px;
+        }
 
-nav a{
-  margin:0 15px;
-  text-decoration:none;
-  color:#0077b6;
-  font-weight:bold;
-}
+        header h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
 
-/* CONTENEDOR */
-.container{
-  width:90%;
-  max-width:1100px;
-  margin:25px auto;
-}
+        /* NAV */
+        nav {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-/* HERO */
-.hero{
-  background:url('https://images.unsplash.com/photo-1502082553048-f009c37129b9') center/cover;
-  color:white;
-  padding:50px;
-  border-radius:14px;
-  position:relative;
-  text-align:center;
-}
+        nav a {
+            text-decoration: none;
+            margin: 0 15px;
+            color: #0077b6;
+            font-weight: bold;
+        }
 
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.5);
-  border-radius:14px;
-}
+        nav a:hover {
+            color: #023e8a;
+        }
 
-.hero *{
-  position:relative;
-}
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 0;
+        }
 
-/* SECCIONES */
-section{
-  margin-bottom:40px;
-}
+        /* HERO */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9')
+                center/cover;
+            color: white;
+            padding: 80px 30px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
+        }
 
-h2{
-  border-left:6px solid #00b4d8;
-  padding-left:10px;
-}
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+        }
 
-/* CARDS */
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-  gap:20px;
-}
+        .hero * {
+            position: relative;
+            z-index: 2;
+        }
 
-.card{
-  background:white;
-  padding:20px;
-  border-radius:14px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.1);
-  transition:0.3s;
-}
+        .hero h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
 
-.card:hover{
-  transform:scale(1.03);
-}
+        .hero p {
+            font-size: 20px;
+        }
 
-/* BOTON */
-.btn{
-  background:#0077b6;
-  color:white;
-  padding:10px 15px;
-  border-radius:10px;
-  text-decoration:none;
-  display:inline-block;
-}
+        /* SECCIONES */
+        section {
+            margin: 50px 0;
+        }
 
-/* GALERIA */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
-}
+        h2 {
+            color: #0077b6;
+            margin-bottom: 20px;
+            border-left: 6px solid #00b4d8;
+            padding-left: 10px;
+        }
 
-.gallery img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  border-radius:10px;
-}
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
 
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:15px;
-  border-radius:50%;
-  text-decoration:none;
-}
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
 
-/* FOOTER */
-footer{
-  background:#0077b6;
-  color:white;
-  text-align:center;
-  padding:20px;
-}
+        .card:hover {
+            transform: scale(1.03);
+        }
 
-</style>
+        /* BOTÓN */
+        .btn {
+            display: inline-block;
+            background: #0077b6;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: #023e8a;
+        }
+
+        /* GALERÍA */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* FORMULARIO */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        /* WHATSAPP */
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            font-size: 28px;
+            padding: 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0077b6;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-  <h1>💧 Cuidemos el Agua</h1>
-  <p>Vega de San Marcos, Veracruz</p>
-</header>
+    <header>
+        <h1>💧 Cuidemos el Agua</h1>
+        <p>Vega de San Marcos, Veracruz</p>
+    </header>
 
-<nav>
-  <a href="#inicio">Inicio</a>
-  <a href="#problema">Problema</a>
-  <a href="#tips">Consejos</a>
-  <a href="#galeria">Galería</a>
-  <a href="#contacto">Contacto</a>
-</nav>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#problema">Problema</a>
+        <a href="#tips">Consejos</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
 
-<div class="container">
+    <div class="container">
 
-<section id="inicio">
-  <div class="hero">
-    <h2>El agua que desperdicias hoy, puede faltarte mañana</h2>
-    <p>Cuidemos juntos este recurso vital 💙</p>
-  </div>
-</section>
+        <!-- HERO -->
+        <section id="inicio">
+            <div class="hero">
+                <h2>El agua que desperdicias hoy, puede faltarte mañana</h2>
+                <p>Cuidemos juntos este recurso vital 💙</p>
 
-<section id="problema">
-  <h2>🚱 Problema del agua</h2>
-  <div class="cards">
-    <div class="card"><h3>💧 Escasez</h3><p>El agua cada vez es más limitada.</p></div>
-    <div class="card"><h3>🚿 Desperdicio</h3><p>Se pierde mucha agua en casa.</p></div>
-    <div class="card"><h3>🌍 Contaminación</h3><p>El agua se ensucia con basura.</p></div>
-  </div>
-</section>
+                <a href="#contacto" class="btn">Únete a la campaña</a>
+            </div>
+        </section>
 
-<section id="tips">
-  <h2>✅ Cómo ahorrar agua</h2>
-  <div class="cards">
-    <div class="card"><h3>Cerrar la llave</h3></div>
-    <div class="card"><h3>Reutilizar agua</h3></div>
-    <div class="card"><h3>Reparar fugas</h3></div>
-    <div class="card"><h3>Usar cubeta</h3></div>
-  </div>
-</section>
+        <!-- PROBLEMA -->
+        <section id="problema">
+            <h2>🚱 Problema del Agua</h2>
 
-<section id="galeria">
-  <h2>📸 Comunidad</h2>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9">
-    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
-    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
-  </div>
-</section>
+            <div class="cards">
 
-<section id="contacto">
-  <h2>📞 Contacto</h2>
+                <div class="card">
+                    <h3>💧 Escasez</h3>
+                    <p>El agua potable es cada vez más limitada.</p>
+                </div>
 
-  <div class="cards">
+                <div class="card">
+                    <h3>🚿 Desperdicio</h3>
+                    <p>Muchas personas desperdician agua diariamente.</p>
+                </div>
 
-    <div class="card">
-      <h3>📱 WhatsApp</h3>
-      <p>5583679002</p>
-      <a href="https://wa.me/525583679002" class="btn" target="_blank">
-        Enviar mensaje
-      </a>
+                <div class="card">
+                    <h3>🌍 Contaminación</h3>
+                    <p>La basura y químicos contaminan ríos y mares.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONSEJOS -->
+        <section id="tips">
+            <h2>✅ Cómo ahorrar agua</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>🚰 Cierra la llave</h3>
+                    <p>No dejes correr el agua innecesariamente.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🪣 Usa cubeta</h3>
+                    <p>Evita usar manguera para lavar.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🔧 Repara fugas</h3>
+                    <p>Una pequeña fuga desperdicia mucha agua.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- GALERÍA -->
+        <section id="galeria">
+            <h2>📸 Comunidad</h2>
+
+            <div class="gallery">
+
+                <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9">
+
+                <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6">
+
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+
+                <img src="https://images.unsplash.com/photo-1605600659873-d808a13e4a77">
+
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto">
+
+            <h2>📞 Contacto</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>📱 WhatsApp</h3>
+
+                    <p>5583679002</p>
+
+                    <a href="https://wa.me/525583679002"
+                        class="btn"
+                        target="_blank">
+
+                        Enviar mensaje
+                    </a>
+                </div>
+
+                <div class="card">
+                    <h3>📧 Correo</h3>
+
+                    <p>cuidemoselagua@gmail.com</p>
+                </div>
+
+            </div>
+
+        </section>
+
     </div>
 
-    <div class="card">
-      <h3>📧 Correo</h3>
-      <p>cuidemoselagua@gmail.com</p>
-    </div>
+    <!-- BOTÓN FLOTANTE -->
+    <a href="https://wa.me/525583679002"
+        class="whatsapp"
+        target="_blank">
 
-  </div>
+        💧
+    </a>
 
-</section>
-
-</div>
-
-<a href="https://wa.me/525583679002" class="whatsapp" target="_blank">
-💧
-</a>
-
-<footer>
-  <p>© 2026 Cuidemos el Agua - Vega de San Marcos</p>
-</footer>
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Cuidemos el Agua - Vega de San Marcos</p>
+    </footer>
 
 </body>
+
 </html>
